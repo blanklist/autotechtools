@@ -1,1 +1,5 @@
 <h1>AutoTechTools</h1>
+
+<% if logged_in? %>
+  <p><%= link_to 'forms', controller: 'forms' %></p>
+<% end %>
