@@ -10,6 +10,7 @@
 
   <body>
     <div id="user_header">
+      <%= link_to 'Home', '/' %>
       <% if logged_in? %>
         <%= link_to 'Logout', logout_path %>
       <% else %>
