@@ -1,3 +1,27 @@
 <h2>New Form Page</h2>
 
+<%= form_for @form, url: {action: "create"} do |f| %>
+
+  <% if @form.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@form.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @form.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :desc, placeholder: "Title/Description" %>
+  <br>
+  <%= f.text_area :body, placeholder: "Enter your form here. Use [] for any variables to be changed later.", size: "40x20" %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <br>
+  <%= f.submit "Create" %>
+<% end %>
+
 <p><%= link_to "Back to Form Index", forms_path %></p>

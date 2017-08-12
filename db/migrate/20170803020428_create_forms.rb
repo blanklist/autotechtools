@@ -1,8 +1,9 @@
 class CreateForms < ActiveRecord::Migration[5.1]
   def change
     create_table :forms do |t|
-      t.string  :desc
-      t.string  :body
+      t.string      :desc
+      t.string      :body
+      t.references  :user
 
       t.timestamps
     end
